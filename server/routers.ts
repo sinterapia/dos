@@ -7,6 +7,17 @@ export const appRouter = router({
     timestamp: new Date().toISOString(),
   })),
 
+  auth: router({
+    me: publicProcedure.query(() => {
+      return {
+        id: 1,
+        name: 'Demo User',
+        email: 'demo@example.com',
+        role: 'user',
+      }
+    }),
+  }),
+
   integrations: router({
     validateTaxId: publicProcedure
       .input(z.object({ taxId: z.string() }))
